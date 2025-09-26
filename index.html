@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title and Description -->
+    <title>Photo Roasting App - Get Your Photos Hilariously Roasted by AI</title>
+    <meta name="description" content="Upload your photos and get them hilariously roasted by AI! Anonymous, fun, and family-friendly photo roasting using advanced AI vision technology.">
+    <meta name="keywords" content="photo roast, AI humor, funny photo comments, photo comedy, image roasting, AI jokes">
+    <meta name="author" content="Photo Roasting App Team">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://photoroast.app/">
+    <meta property="og:title" content="Photo Roasting App - AI-Powered Photo Comedy">
+    <meta property="og:description" content="Upload your photos and get them hilariously roasted by AI! Anonymous, fun, and family-friendly.">
+    <meta property="og:image" content="https://photoroast.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Photo Roasting App">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://photoroast.app/">
+    <meta property="twitter:title" content="Photo Roasting App - AI-Powered Photo Comedy">
+    <meta property="twitter:description" content="Upload your photos and get them hilariously roasted by AI! Anonymous, fun, and family-friendly.">
+    <meta property="twitter:image" content="https://photoroast.app/twitter-image.jpg">
+    <meta property="twitter:creator" content="@photoroastapp">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Photo Roast">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://api.openai.com;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: blob: https:;
+        connect-src 'self' https://api.openai.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        frame-ancestors 'none';
+        upgrade-insecure-requests;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    
+    <!-- Preconnect to External Services -->
+    <link rel="preconnect" href="https://api.openai.com">
+    <link rel="dns-prefetch" href="https://api.openai.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Photo Roasting App",
+        "description": "AI-powered photo roasting application for humorous photo commentary",
+        "url": "https://photoroast.app",
+        "applicationCategory": "Entertainment",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Photo Roasting App Team"
+        }
+    }
+    </script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/components.css">
+</head>
+<body>
+    
+    <!-- Main Application -->
+    <main id="main-content" role="main" class="app-main">
+        <div class="container">
+            <!-- Application will be mounted here -->
+            <div id="app" class="app-container">
+                <!-- Loading state -->
+                <div class="loading-container" aria-live="polite">
+                    <div class="loading-spinner" aria-hidden="true"></div>
+                    <p>Loading Photo Roasting App...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+    <!-- Error Boundary Fallback (hidden by default) -->
+    <div id="error-fallback" class="error-fallback" role="alert" aria-live="assertive" style="display: none;">
+        <div class="error-container">
+            <h2>Oops! Something went wrong</h2>
+            <p>We're having trouble loading the app. Please try refreshing the page.</p>
+            <button type="button" class="btn btn-primary" onclick="window.location.reload()">
+                Refresh Page
+            </button>
+        </div>
+    </div>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Register service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Main Application Script -->
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

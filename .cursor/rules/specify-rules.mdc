@@ -1,0 +1,112 @@
+# SpecIt Project Context for AI Assistants
+
+## Current Feature: Photo Roasting Web App (001-i-want-to)
+
+### Project Overview
+Frontend-only anonymous web application for humorous photo roasting using OpenAI Vision API. Users select photos (≤5MB), receive AI-generated roasts within 10 seconds via direct browser-to-OpenAI communication, with no data storage or backend required.
+
+### Technical Stack
+- **Language**: JavaScript ES2020+, HTML5, CSS3
+- **Architecture**: Frontend-only static web application
+- **AI Service**: OpenAI GPT-4 Vision API (direct browser integration)
+- **File Processing**: HTML5 File API, FileReader for base64 conversion
+- **Testing**: Jest with 80% coverage requirement
+- **Deployment**: Static hosting (CDN, GitHub Pages, Netlify)
+
+### Constitutional Requirements (ADAPTED FOR JAVASCRIPT)
+- **File Size Limit**: Maximum 100 lines per JavaScript file (NON-NEGOTIABLE)
+- **Type Safety**: JSDoc type annotations for all functions
+- **Code Quality**: ESLint, Prettier validation required
+- **Test Coverage**: Minimum 80% coverage with Jest
+- **Documentation**: JSDoc conventions required for all functions
+
+### Architecture Decisions
+- **Project Structure**: Frontend-only static web application
+- **File Storage**: No storage - browser memory processing only
+- **Error Handling**: Client-side validation with user-friendly messages
+- **Performance**: Direct OpenAI API calls with 10-second SLA requirement
+- **Security**: No data persistence, browser-based file validation, anonymous usage
+
+### Key Implementation Guidelines
+
+#### File Organization
+```
+src/
+├── components/      # <100 lines each: PhotoUpload.js, RoastDisplay.js, ErrorHandler.js
+├── services/        # <100 lines each: openaiClient.js, fileValidator.js, imageProcessor.js
+├── utils/          # <100 lines each: constants.js, helpers.js
+└── styles/         # <100 lines each: main.css, components.css
+
+tests/
+├── unit/           # Component and service tests
+└── integration/    # End-to-end browser tests
+```
+
+#### Code Quality Rules
+1. **Every function MUST have JSDoc type annotations**
+2. **Every module MUST have comprehensive JSDoc comments**
+3. **No file can exceed 100 lines (including comments)**
+4. **All imports MUST be organized and sorted**
+5. **Code MUST pass ESLint and Prettier validation**
+
+#### Testing Requirements
+- Contract tests for API endpoints
+- Unit tests for each service module
+- Integration tests for complete user flows
+- Error scenario testing (file size, format, timeout)
+- Performance testing for 10-second SLA
+
+### Current Development Phase
+**Phase 1 Complete**: Design and contracts generated
+- ✅ Data models defined (PhotoUpload, RoastResponse)
+- ✅ API contracts created (OpenAPI 3.0 specification)
+- ✅ Quickstart guide for end-to-end validation
+- ✅ Research completed for technical decisions
+
+**Next Phase**: Task generation and implementation planning
+
+### Key Functional Requirements
+- FR-001: Photo upload from user device
+- FR-002: OpenAI-powered humorous roast generation
+- FR-003: Display generated roast to user
+- FR-004: Support JPEG, PNG, GIF, WebP formats
+- FR-005: Handle uploads up to 5MB
+- FR-006: 10-second response time SLA
+- FR-007: Anonymous usage (no accounts)
+- FR-008: Immediate photo deletion after processing
+- FR-009: Graceful error handling with user-friendly messages
+- FR-010: File format and size validation
+
+### Performance & Security Constraints
+- **Response Time**: <10 seconds for complete roast generation
+- **File Size**: 5MB maximum upload limit
+- **Memory Usage**: Efficient temporary file handling
+- **Privacy**: No data persistence, immediate cleanup
+- **Validation**: File header verification, MIME type checking
+- **Error Handling**: Timeout management, API failure recovery
+
+### Common Patterns to Follow
+1. **Async/Await**: Use for all I/O operations (file upload, OpenAI API)
+2. **Context Managers**: Use for temporary file handling and cleanup
+3. **Pydantic Models**: For request/response validation and serialization
+4. **Exception Handling**: Custom exception classes for different error types
+5. **Logging**: Structured logging without exposing user data
+
+### Files to Keep Under 100 Lines
+When implementing, ensure these modules stay under constitutional limits:
+- `photo_upload.py`: Photo model and validation (~60 lines)
+- `roast_response.py`: Response models (~40 lines)
+- `upload_service.py`: File upload handling (~80 lines)
+- `openai_service.py`: AI API integration (~90 lines)
+- `roast_service.py`: Orchestration logic (~70 lines)
+- `main.py`: FastAPI app setup (~50 lines)
+- `roast_endpoints.py`: API endpoints (~90 lines)
+
+### Recent Changes
+- 2025-09-18: Initial feature specification completed
+- 2025-09-18: Implementation planning and design phase completed
+- 2025-09-18: Research phase completed with technical decisions
+- 2025-09-18: Data models and API contracts defined
+
+---
+*This context is automatically updated during development. Last updated: 2025-09-18*

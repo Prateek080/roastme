@@ -1,0 +1,65 @@
+{
+  "name": "photo-roasting-web-app",
+  "version": "1.0.0",
+  "description": "Frontend-only anonymous photo roasting web application using OpenAI Vision API",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write src/**/*.js src/**/*.css *.html",
+    "format:check": "prettier --check src/**/*.js src/**/*.css *.html",
+    "serve": "python -m http.server 3000",
+    "validate": "npm run lint && npm run format:check && npm run test",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir dist",
+    "deploy:vercel": "npm run build && vercel --prod",
+    "lighthouse": "lighthouse http://localhost:3000 --output html --output-path ./reports/lighthouse.html"
+  },
+  "keywords": [
+    "photo",
+    "roasting",
+    "humor",
+    "openai",
+    "vision",
+    "frontend",
+    "web-app",
+    "javascript"
+  ],
+  "author": "Photo Roasting App Team",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.20.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/user-event": "^14.5.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-jest": "^27.4.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lighthouse": "^11.2.0",
+    "prettier": "^3.0.3",
+    "vite": "^4.5.0",
+    "vite-plugin-pwa": "^0.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ]
+}
